@@ -8,8 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
-        "format:check": "prettier --check .",
-        "postinstall": "prisma generate"
+        "format:check": "prettier --check ."
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.11.1",
