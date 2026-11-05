@@ -7,8 +7,9 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint .",
-        "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format": "biome format --write .",
+        "format:check": "biome format .",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.11.3",
@@ -44,6 +45,7 @@
         "zod": "^4.6.7"
     },
     "devDependencies": {
+        "@biomejs/biome": "^2",
         "@eslint/eslintrc": "^3.3.7",
         "@tailwindcss/postcss": "^4.3.4",
         "@tailwindcss/typography": "^0.5.20",
@@ -52,7 +54,6 @@
         "@types/react-dom": "^19.3.0",
         "eslint": "^10",
         "eslint-config-next": "^16.4.5",
-        "prettier": "^3.9.10",
         "prisma": "^7",
         "tailwindcss": "^4.3.4",
         "tsx": "^4.23.15",

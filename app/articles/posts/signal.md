@@ -1,4 +1,5 @@
 ---
+
 title: 'Signal'
 description: 'Telegramに変わる最も安全なチャットアプリ'
 tags: ['mobile', 'signal']

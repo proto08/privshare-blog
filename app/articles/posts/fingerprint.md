@@ -1,4 +1,5 @@
 ---
+
 title: 'フィンガープリント'
 description: 'IPアドレス以外での特定方法'
 tags: ['anonimity', 'fingerprint']

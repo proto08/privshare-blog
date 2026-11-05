@@ -1,0 +1,41 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+# 同じ PR で新しい push があったら、古い実行を止める
+concurrency:
+    group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+    contents: read
+
+jobs:
+    # typecheck / build は、repo に prisma/(schema)が無く @/prisma/prisma が解決できないため対象外。
+    # prisma を repo に追加したら typecheck と build を足す。
+    web:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: .
+        steps:
+            - uses: actions/checkout@v7.0.1
+            - uses: oven-sh/setup-bun@v2.2.0
+            - run: bun install --frozen-lockfile --ignore-scripts
+            - run: bun run format:check
+            - run: bun run lint
+
+    # actions.lock が workflows と一致し、固定した SHA が上流で検証できることを確認する
+    lockfile:
+        runs-on: ubuntu-latest
+        env:
+            GH_TOKEN: ${{ github.token }}
+        steps:
+            - uses: actions/checkout@v7.0.1
+              with:
+                  persist-credentials: false
+            - run: gh extension install github/gh-actions-lock --pin v0.4.1
+            - run: gh actions-lock --verify
