@@ -72,10 +72,10 @@ export function SplitEditor({
 
             <div className="hidden md:block flex-1 overflow-hidden">
                 <ResizablePanelGroup
-                    direction="horizontal"
+                    orientation="horizontal"
                     className="rounded-lg border"
                 >
-                    <ResizablePanel defaultSize={50} minSize={30}>
+                    <ResizablePanel defaultSize="50%" minSize="30%">
                         <div className="h-full flex flex-col">
                             <div className="px-4 py-2 border-b bg-muted/50">
                                 <h2 className="text-sm font-semibold">
@@ -94,7 +94,7 @@ export function SplitEditor({
 
                     <ResizableHandle withHandle />
 
-                    <ResizablePanel defaultSize={50} minSize={30}>
+                    <ResizablePanel defaultSize="50%" minSize="30%">
                         <div className="h-full flex flex-col">
                             <div className="px-4 py-2 border-b bg-muted/50">
                                 <h2 className="text-sm font-semibold">
