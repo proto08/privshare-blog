@@ -1,4 +1,5 @@
 ---
+
 title: 'SimpleX'
 description: '新時代のプライバシーメッセンジャー'
 tags: ['mobile', 'simplex']
