@@ -1,0 +1,17 @@
+# minor/patch はグループ化して自動マージ(.github/workflows/dependabot-auto-merge.yml)。
+# major は個別の PR になり、自動マージされない。
+version: 2
+updates:
+  - package-ecosystem: "bun"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 3
+    groups:
+      minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    commit-message:
+      prefix: "chore(deps)"
